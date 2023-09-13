@@ -40,12 +40,12 @@ const Signup = () => {
           <div className="box">
             <h2>Step 2</h2>
             <div className="inputBox">
-              <input type="date" name="dob" required />
-              <label>Date of Birth (dd/mm/yyyy)*</label>
+              <input type="text" name="adhaar" />
+              <label>Adhaar No</label>
             </div>
             <div className="inputBox">
-              <input type="text" name="father_name" required />
-              <label>Father's Name*</label>
+              <input type="text" name="driving_l" />
+              <label>Driving Lisence No.</label>
             </div>
             <div className="buttonSection">
             <button type="button" className="previousButton">Previous</button>
@@ -55,12 +55,12 @@ const Signup = () => {
           <div className="box">
             <h2>Step 3</h2>
             <div className="inputBox">
-              <input type="text" name="city" required />
-              <label>City*</label>
+              <input type="number" name="n_vehicles" required />
+              <label>No of vehicles*</label>
             </div>
             <div className="inputBox">
               <input type="text" name="country" required />
-              <label>Country*</label>
+              <label>Primary Vehicle no.*</label>
             </div>
             <div className="buttonSection">
             <button type="button" className="previousButton">Previous</button>
@@ -70,8 +70,8 @@ const Signup = () => {
           <div className="box">
             <h2>Step 3</h2>
             <div className="inputBox">
-              <input type="text" name="lang" required />
-              <label>Preferred Language*</label>
+              <input type="email" name="lang"/>
+              <label>Email Id</label>
             </div>
             <div className="inputBox">
               <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required />
@@ -82,7 +82,7 @@ const Signup = () => {
             <button type="button" className="nextButton">Next</button>
             </div>
           </div>
-          <div className="box">
+          {/* <div className="box">
             <h2>Step 3</h2>
             <div className="inputBox">
               <input type="text" name="username" required />
@@ -100,7 +100,7 @@ const Signup = () => {
             <button type="button" className="previousButton">Previous</button>
             <button type="button" className="nextButton">Next</button>
             </div>
-          </div>
+          </div> */}
           <div className="box">
             <h2>Are you sure you want to Submit?</h2>
             <div className="buttonSection">
