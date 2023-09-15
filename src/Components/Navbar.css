@@ -1,0 +1,19 @@
+.nav-menu
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+   margin-bottom: 30px;
+}
+.list-item
+{
+    display: flex;;
+    gap: 3px;
+    list-style: none;
+    text-decoration:none;
+}
+.btn
+{
+    display: flex;
+    gap: 10px;
+}

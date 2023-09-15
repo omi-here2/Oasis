@@ -1,21 +1,3 @@
-.container{
-    margin-top: 30%;
-    background-color: rgb(214, 97, 214);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    color: white;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-.header{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
- 
-
-}
 
 .text{
     color: black;
@@ -61,4 +43,6 @@
 .new_account{
     color: rgb(83, 24, 167);
 }
-
+/* #authMessage{
+    color: red;
+} */
