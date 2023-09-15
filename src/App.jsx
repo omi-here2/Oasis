@@ -1,3 +1,4 @@
+// Import the functions you need from the SDKs you need
 import './App.css';
 
 import {
@@ -7,8 +8,8 @@ import {
 import About from './Components/About';
 import Home from './Components/Home';
 import Contact from './Components/Contact';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
+import Login from './Components/LoginSignup/Login';
+// import UserSignup from './Components/LoginSignup/userSignup';
 import Navbar from './Components/Navbar';
 import ErrorPage from './ErrorPage';
 
@@ -34,10 +35,10 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />
       },
-      {
-        path: "signup",
-        element: <Signup />
-      },
+      // {
+      //   path: "signup/user",
+      //   element: <UserSignup />
+      // }
     ],
   },
 ]);

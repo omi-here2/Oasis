@@ -1,37 +1,90 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import { useState } from 'react'
+import { auth } from '../../firebase'
 import './Login.css'
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from 'firebase/auth'
 
 
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [authMessage, setAuthMessage] = useState('')
+  const [userData, setUserData] = useState('')
+
+  const signIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          const message = `Login successful for ${user.email}`;
+          setAuthMessage(authMessage => message);
+
+          // Change the image source when login is successful
+          // document.getElementById("userImage").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvp_mDZ7oX7W1jsoIfLcolnFDR9L1W_asDgHEj8vgLuA&s";
+      })
+      .catch((error) => {
+          const message = `Login failed: ${error.message}`;
+          setAuthMessage(authMessage => message);
+      });
+  }
+
+  const handleForgetPassword = (e) => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+          const message = "Password reset email sent. Check your inbox.";
+          setAuthMessage(authMessage => message);
+      })
+      .catch((error) => {
+          const message = `Password reset failed: ${error.message}`;
+          setAuthMessage(authMessage => message);
+      });
+  }
   return (
-    <div className="container">
-       <div className='header'> 
-        <div className='text'>Log In </div>
-        <div classname='line'></div>      
-       </div>
+    <>
+      <h1>Welcome to our Signup and Login Page</h1>
+      <button id="signupDriverBtn"><Link to={`/signup/user`}>Signup as Car Driver</Link></button>
+      <button id="signupRentalBtn"><Link to={`/signup/rental`}>Signup as Rental</Link></button>
 
-       <div className='inputs'>
-        <div className='ind_input'>
-          <img src="" alt=""></img>
-          <input type='text' placeholder="Phone or Email"></input>
+      <h1>Login</h1>
+      <form onSubmit={signIn}>
+        <div>
+            <label htmlfor="loginEmail">Email:</label>
+            <input 
+              type="email" 
+              id="loginEmail" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
         </div>
-        <div className='ind_input'>
-          <img src="" alt=""></img>
-          <input type='password' placeholder='Password'></input>
+        <div>
+            <label htmlFor="loginPassword">Password:</label>
+            <input 
+              type="password" 
+              id="loginPassword" 
+              value={password} 
+              onChange={(e) => setPassword(e.target.value)}
+              required 
+            />
         </div>
-       </div>
+        <button type='submit'>Login</button>
+      </form>
 
-       <div className='footer'>
-          <div className='forgot_password'>
-            Forgotten Password ?
-          </div>
-          <div classname='line'></div>
-          <div className='new_account'>
-            Create New Account
-          </div>
-       </div>
-    </div>
+      <br /><br />
+
+      <h2>Forget Password???</h2>
+      {/* Add the "Forget Password" button */}
+      <div>
+          <label htmlFor="resetEmail">Email:</label>
+          <input type="email" id="resetEmail" required />
+      </div>
+      <button onclick="handleForgetPassword()">Forget Password</button>
+
+
+      <div id="authMessage">{authMessage}</div>
+    </>
   )
 }
 
