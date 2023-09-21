@@ -50,7 +50,7 @@ const Login = () => {
       <h1>Login</h1>
       <form onSubmit={signIn}>
         <div>
-            <label htmlfor="loginEmail">Email:</label>
+            <label htmlFor="loginEmail">Email:</label>
             <input 
               type="email" 
               id="loginEmail" 
@@ -71,17 +71,8 @@ const Login = () => {
         </div>
         <button type='submit'>Login</button>
       </form>
-
+        <button onClick={handleForgetPassword}>Forget Password?</button>
       <br /><br />
-
-      <h2>Forget Password???</h2>
-      {/* Add the "Forget Password" button */}
-      <div>
-          <label htmlFor="resetEmail">Email:</label>
-          <input type="email" id="resetEmail" required />
-      </div>
-      <button onclick="handleForgetPassword()">Forget Password</button>
-
 
       <div id="authMessage">{authMessage}</div>
     </>

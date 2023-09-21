@@ -9,7 +9,8 @@ import About from './Components/About';
 import Home from './Components/Home';
 import Contact from './Components/Contact';
 import Login from './Components/LoginSignup/Login';
-// import UserSignup from './Components/LoginSignup/userSignup';
+import UserSignup from './Components/LoginSignup/UserSignup';
+import LandingPage from './routes/landingPage'
 import Navbar from './Components/Navbar';
 import ErrorPage from './ErrorPage';
 
@@ -35,10 +36,10 @@ const router = createBrowserRouter([
         path: "login",
         element: <Login />
       },
-      // {
-      //   path: "signup/user",
-      //   element: <UserSignup />
-      // }
+      {
+        path: "signup/user",
+        element: <UserSignup />
+      }
     ],
   },
 ]);
@@ -46,7 +47,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+    <LandingPage />
     </div>
   );
 }
