@@ -10,8 +10,9 @@ import Home from './Components/Home';
 import Contact from './Components/Contact';
 import Login from './Components/LoginSignup/Login';
 import UserSignup from './Components/LoginSignup/UserSignup';
-import LandingPage from './routes/landingPage'
 import Navbar from './Components/Navbar';
+// import NewNavbar from './Components/newNavbar';
+import LandingPage from './routes/landingPage'
 import ErrorPage from './ErrorPage';
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     element: <Navbar />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path:"",
+        element: <LandingPage />
+      },
       {
         path: "home",
         element: <Home />
@@ -47,8 +52,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-      {/* <RouterProvider router={router} /> */}
-    <LandingPage />
+      <RouterProvider router={router} />
+      {/* <NewNavbar /> */}
     </div>
   );
 }
