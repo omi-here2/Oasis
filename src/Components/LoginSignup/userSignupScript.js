@@ -51,7 +51,14 @@ document.getElementById('submit').addEventListener('click', function() {
         email: registerEmail.value,
         password: registerPassword.value
     };
-    
-    pushUserData(userData);
+    // Push the userData object to the database
+    push(driverSignupDetailsRef, userData)
+    .then((ref) => {
+        console.log("Data pushed successfully with key: " + ref.key);
+        // You can perform any further actions here after a successful push
+    })
+    .catch((error) => {
+        console.error("Error pushing data: " + error);
+    });
 });
 
